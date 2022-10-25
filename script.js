@@ -25,14 +25,20 @@ const checkInput = () => {
     if (input.value === '') {
         answer.textContent= ''
         error.textContent= 'Podaj pytanie.'
-    } else if (input.value.charAt(input.value.length-1) !== '?') {
+    } else if (input.value.slice(-1) !== '?') {
         answer.textContent= ''
         error.textContent= 'Musisz wpisać na końcu pytania znak "?"'
     } else {
         drawAnswer()
     }
+}
 
+const checkEnter = (e) => {
+    if (e.key === 'Enter') {
+        animation()
+    }
 }
 
 
 ball.addEventListener('click', animation)
+input.addEventListener('keyup', checkEnter)
